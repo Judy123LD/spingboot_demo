@@ -1,6 +1,6 @@
 package com.example.test.controller;
 
-import com.example.test.entity.UserEntity;
+import com.example.test.entity.User;
 import com.example.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ public class LoginController {
 
     @RequestMapping(value="/loginIn",method= RequestMethod.POST)
     public String login(String name,String password){
-        UserEntity userEntity =userService.loginIn(name,password);
+        User userEntity =userService.loginIn(name,password);
         if(userEntity !=null){
             return "success";
         }else{

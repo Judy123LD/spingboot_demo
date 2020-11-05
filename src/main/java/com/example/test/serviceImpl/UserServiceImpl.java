@@ -1,11 +1,13 @@
 package com.example.test.serviceImpl;
 
-import com.example.test.entity.UserEntity;
+import com.example.test.entity.User;
 import com.example.test.dao.UserDao;
 import com.example.test.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -14,7 +16,18 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public UserEntity loginIn(String name, String password) {
+    public User loginIn(String name, String password) {
         return userDao.getInfo(name,password);
     }
+
+    @Override
+    public List<User> getAllUser() {
+        return userDao.getAllUser();
+    }
+
+    @Override
+    public int insertUser(@RequestBody User user) {
+        return userDao.insertUser(user);
+    }
+
 }

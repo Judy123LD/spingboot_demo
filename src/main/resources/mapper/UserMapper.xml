@@ -3,7 +3,7 @@
 <!--    namespace属性要填写 访问数据库接口类文件路径-->
 <mapper namespace="com.example.test.dao.UserDao">
 
-    <select id="getInfo" parameterType="String" resultType="com.example.test.entity.UserEntity">
+    <select id="getInfo" parameterType="String" resultType="com.example.test.entity.User">
         SELECT * FROM user WHERE name = #{name} AND password = #{password}
     </select>
 
