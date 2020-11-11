@@ -1,10 +1,18 @@
 package com.example.test.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
     private int id;
     private String name;
     private String password;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)//自增？
+    @Id
     public int getId() {
         return id;
     }

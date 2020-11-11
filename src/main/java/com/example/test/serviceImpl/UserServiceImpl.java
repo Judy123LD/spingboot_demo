@@ -17,17 +17,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User loginIn(String name, String password) {
-        return userDao.getInfo(name,password);
+        return userDao.findUserByNameAndPassword(name,password);
     }
 
     @Override
     public List<User> getAllUser() {
-        return userDao.getAllUser();
+        return userDao.findAll();
     }
 
-    @Override
-    public int insertUser(@RequestBody User user) {
-        return userDao.insertUser(user);
-    }
 
 }

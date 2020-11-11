@@ -6,8 +6,16 @@ spring:
     username: root  #�û���
     password: 1111  #����
     driver-class-name: com.mysql.jdbc.Driver  #���ݿ���������
-
+#    hikari: # Hikari 连接池专用配置
+#      minimum-idle: 5 #最小空闲连接数
+#      maximum-pool-size: 20 #连接池最大连接数
+  jpa:
+    show-sql: true #打印sql语句，方便调试
+    hibernate:
+      ddl-auto: update #自动创建|更新|验证数据库表结构
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #设置数据库引擎为InnoDB
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml  #����ӳ���ļ�
   type-aliases-package: com.example.test.bean #����ʵ����
+
