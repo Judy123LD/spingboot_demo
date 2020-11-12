@@ -55,9 +55,9 @@ class TestApplicationTests {
     @Test
     public void findAll(){
 
-        User user=this.userDao.findUserByNameAndPassword("huanhuan","1111");
+//        User user=this.userDao.findUserByNameAndPassword("huanhuan","1111");
 
-            System.out.println("=======test======:"+user.getPassword()+user.getName());
+//            System.out.println("=======test======:"+user.getPassword()+user.getName());
 
     }
 

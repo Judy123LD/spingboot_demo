@@ -25,5 +25,14 @@ public class UserServiceImpl implements UserService {
         return userDao.findAll();
     }
 
-
+    @Override
+    public String register(User user) {
+        User userEntity=userDao.findUserByName(user.getName());
+        if(userEntity!=null){//用户名已存在
+           return "username existed";
+        }else{//用户名未注册
+            userDao.save(user);
+            return "success";
+        }
+    }
 }

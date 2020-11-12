@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class LoginController {
 
@@ -29,27 +31,15 @@ public class LoginController {
 //    public String login(String name,String password){
     public String login(@RequestBody User user){//没加RequestBody注解好像无法接收json数据类型
                                         //user对象默认是json格式的？
-        System.out.println("8888888888:"+user.getName()+user.getPassword());
+        System.out.println("-------------login params:"+user.getName()+user.getPassword());
         User userEntity =userService.loginIn(user.getName(),user.getPassword());
-        return "success";
 
-//        if(userEntity !=null){
-//            return "success";
-//        }else{
-//            return "error";
-//        }
+        if(userEntity !=null){
+            return "success";
+        }else{
+            return "error";
+        }
     }
 
-//    @RequestMapping(value="/addUser",method= RequestMethod.POST)
-//    public String addUser(String name,String password){
-//        System.out.println("77777777:"+name+password);
-//        User userEntity =userService.loginIn(name,password);
-//
-////        return "name+password";
-//        if(userEntity !=null){
-//            return "success";
-//        }else{
-//            return "error";
-//        }
-//    }
+
 }
